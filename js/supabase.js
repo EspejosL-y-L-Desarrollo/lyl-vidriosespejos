@@ -2,6 +2,7 @@
 const SUPABASE_URL = 'https://tzbqiqjsugidkzdwgvof.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6YnFpcWpzdWdpZGt6ZHdndm9mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgxMDEyNzAsImV4cCI6MjA4MzY3NzI3MH0.WlcyGQ7-ab9l_AGdfVfGuh-dxtOpVa08BccUTqKnbJQ';
 
+
 // Variable para el cliente de Supabase
 let supabaseClient = null;
 
@@ -250,3 +251,4 @@ window.uploadToStorage = uploadToStorage;
 window.getPublicUrl = getPublicUrl;
 window.dataURLtoBlob = dataURLtoBlob;
 window.incrementClickCount = incrementClickCount;
+
