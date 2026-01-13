@@ -1,12 +1,15 @@
 [build]
+  # Para un sitio estático, publica desde la raíz
   publish = "."
-  command = "npm run build"
+  command = "echo 'Build estático - sin comandos necesarios'"
 
+# Variables de entorno (Netlify las sobreescribirá con las que configures en el panel)
 [build.environment]
-  SUPABASE_URL = "https://tzbqiqjsugidkzdwgvof.supabase.co"
-  SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6YnFpcWpzdWdpZGt6ZHdndm9mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgxMDEyNzAsImV4cCI6MjA4MzY3NzI3MH0.WlcyGQ7-ab9l_AGdfVfGuh-dxtOpVa08BccUTqKnbJQ"
+  # Estas son SOLO valores por defecto, usa las variables reales en el panel de Netlify
+  SUPABASE_URL = ""
+  SUPABASE_ANON_KEY = ""
 
-
+# Redirecciones para SPA (Single Page Application)
 [[redirects]]
   from = "/*"
   to = "/index.html"
