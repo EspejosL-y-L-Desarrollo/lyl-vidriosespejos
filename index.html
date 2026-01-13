@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L & L | Vidrios y Espejos- Tienda Online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+
+    <header>
+        <div class="nav-container">
+
+            <a href="#inicio" class="logo">
+
+                <img src="/assets/img/logo_l&l.jpeg" alt="Vidrios y Espejos Logo" class="logo-img">
+                <!-- Texto alternativo para accesibilidad -->
+                <span class="sr-only">Vidrios y Espejos</span>
+
+                <div class="logo">
+                    
+                    <h1 href="#inicio"><span> L</span> & <span>L</span></h1>
+                </div>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Sobre Nosotros</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- BOTÓN DE MODO OSCURO - AGREGADO -->
+            <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Alternar modo oscuro">
+                <i class="fas fa-moon"></i>
+            </button>
+
+            <div class="cart-icon" id="cartIcon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+
+            
+
+
+        </div>
+    </header>
+
+    <!-- Banner deslizante -->
+    <section class="banner-container" id="inicio">
+        <div class="banner-slider" id="bannerSlider">
+            <div class="banner-slide"
+                style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('assets/img/banner_L&L_1.jpg')">
+                <div class="slide-content">
+                    <h2>Espejos de Alta Calidad</h2>
+                    <p>Fabricamos espejos personalizados para tu hogar o negocio con los mejores materiales.</p>
+                </div>
+            </div>
+            <div class="banner-slide"
+                style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('assets/img/banner_L&L_2.jpg')">
+                <div class="slide-content">
+                    <h2>Mamparas de Baño</h2>
+                    <p>Mamparas de vidrio templado para baños, resistentes y elegantes. Diseños modernos.</p>
+                </div>
+            </div>
+            <div class="banner-slide"
+                style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('assets/img/banner_L&L_3.jpg')">
+                <div class="slide-content">
+                    <h2>Trabajos Especiales en Vidrio</h2>
+                    <p>Vidrios para muebles, divisiones, ventanas, personalizados a medida.</p>
+                </div>
+            </div>
+
+            <div class="banner-slide"
+                style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('assets/img/banner_L&L_4.jpg')">
+                <div class="slide-content">
+                    <h2>Soluciones en Vidrio a Medida</h2>
+                    <p>Desarrollamos proyectos en vidrio personalizados para hogares y comercios, combinando diseño
+                        moderno, funcionalidad y materiales de alta calidad.</p>
+
+                </div>
+            </div>
+            <div class="banner-slide"
+                style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('assets/img/banner_L&L_5.jpg')">
+                <div class="slide-content">
+                    <h2>Vidrio Templado de Alta Resistencia</h2>
+                    <p>Trabajamos con vidrio templado de seguridad, ideal para espacios que requieren mayor resistencia,
+                        durabilidad y estética profesional.</p>
+
+                </div>
+            </div>
+            <div class="banner-slide"
+                style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('assets/img/banner_L&L_6.jpg')">
+                <div class="slide-content">
+                    <h2>Diseños Modernos para Interiores y Exteriores</h2>
+                    <p>Aplicamos soluciones en vidrio que aportan amplitud, luminosidad y un estilo contemporáneo a
+                        cualquier ambiente.</p>
+
+                </div>
+            </div>
+            <div class="banner-slide"
+                style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('assets/img/banner_L&L_7.jpg')">
+                <div class="slide-content">
+                    <h2>Asesoramiento Personalizado</h2>
+                    <p>Te acompañamos en cada etapa del proyecto, brindando asesoramiento experto para elegir la mejor
+                        opción según tus necesidades.</p>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="slide-indicators" id="slideIndicators">
+            <div class="indicator active"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+
+
+        </div>
+    </section>
+
+
+    <!-- Catálogo -->
+    <section class="section" id="catalogo">
+        <h2 class="section-title">Nuestros Productos</h2>
+          <!-- Agregar buscador -->
+    <div class="search-container">
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Buscar productos...">
+            <button id="clearSearch" class="clear-search" style="display: none;">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+        <div class="catalog-grid" id="catalogGrid">
+            <!-- Los productos se cargarán dinámicamente con JavaScript -->
+        </div>
+        <div class="pagination-controls" id="paginationControls">
+        <button id="prevPage" class="pagination-btn">
+            <i class="fas fa-chevron-left"></i> Anterior
+        </button>
+        <div class="page-info" id="pageInfo">Página 1 de 1</div>
+        <button id="nextPage" class="pagination-btn">
+            Siguiente <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+    </section>
+
+
+
+    <!-- Sobre Nosotros -->
+    <section class="section" id="nosotros">
+        <h2 class="section-title">Sobre Nosotros</h2>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <p style="margin-bottom: 20px; font-size: 18px;">
+                Con amplia experiencia en trabajos en vidrio, realizamos la fabricación e instalación de espejos, mamparas y soluciones a medida. Todos nuestros productos se elaboran por pedido, coordinando la entrega y estableciendo plazos estimados según cada proyecto, garantizando calidad y atención personalizada.
+            </p>
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 40px;">
+                <div
+                    style="text-align: center; padding: 20px; background-color: white; border-radius: 10px; box-shadow: var(--shadow);">
+                    <i class="fas fa-award"
+                        style="font-size: 40px; color: var(--secondary-color); margin-bottom: 15px;"></i>
+                    <h3 style="margin-bottom: 10px;">Calidad Garantizada</h3>
+                    <p>Usamos materiales de primera calidad en todos nuestros productos.</p>
+                </div>
+                <div
+                    style="text-align: center; padding: 20px; background-color: white; border-radius: 10px; box-shadow: var(--shadow);">
+                    <i class="fas fa-ruler-combined"
+                        style="font-size: 40px; color: var(--secondary-color); margin-bottom: 15px;"></i>
+                    <h3 style="margin-bottom: 10px;">Trabajos a Medida</h3>
+                    <p>Personalizamos cada proyecto según las necesidades del cliente.</p>
+                </div>
+                <div
+                    style="text-align: center; padding: 20px; background-color: white; border-radius: 10px; box-shadow: var(--shadow);">
+                    <i class="fas fa-truck"
+                        style="font-size: 40px; color: var(--secondary-color); margin-bottom: 15px;"></i>
+                    <h3 style="margin-bottom: 10px;">Envios </h3>
+                    <p>Ofrecemos servicio de entrega  en todas las zonas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="section" id="contacto"
+        style="background-color: white; padding: 50px 5%; border-radius: 10px; box-shadow: var(--shadow);">
+        <h2 class="section-title">Contacto</h2>
+        <div
+            style="max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+            <div>
+                <h3 style="margin-bottom: 20px; color: var(--primary-color);">Información de Contacto</h3>
+                <div style="margin-bottom: 20px;">
+                    <p><i class="fas fa-map-marker-alt" style="color: var(--secondary-color); margin-right: 10px;"></i>
+                        Río Cuarto, cba</p>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <p><i class="fas fa-phone" style="color: var(--secondary-color); margin-right: 10px;"></i> +
+                        3584829285</p>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <p><i class="fas fa-envelope" style="color: var(--secondary-color); margin-right: 10px;"></i>
+                        Espejos_L&L@gmail.com</p>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <p><i class="fas fa-clock" style="color: var(--secondary-color); margin-right: 10px;"></i> Lunes a
+                        Viernes: 8:00 - 18:00</p>
+                </div>
+            </div>
+            <div>
+                <h3 style="margin-bottom: 20px; color: var(--primary-color);">Formulario de Contacto</h3>
+                <form id="contactForm">
+                    <div style="margin-bottom: 15px;">
+                        <input type="text" id="contactName" placeholder="Nombre" class="form-input" required>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <input type="email" id="contactEmail" placeholder="Correo Electrónico" class="form-input"
+                            required>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <textarea id="contactMessage" placeholder="Mensaje" class="form-input" rows="5"
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="product-btn">Enviar Mensaje por WhatsApp</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Producto -->
+    <div class="product-modal" id="productModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <div class="modal-product" id="modalProductContent">
+                <!-- Contenido del producto se cargará dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Carrito de Compras -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2 class="cart-title">Carrito de Compras</h2>
+                <span class="close-cart" id="closeCart">&times;</span>
+            </div>
+
+            <div class="cart-step" id="cartItemsStep">
+                <div class="cart-items" id="cartItems">
+                    <!-- Los productos del carrito se cargarán dinámicamente -->
+                </div>
+                <div class="cart-total">
+                    Total: $<span id="cartTotal">0</span>
+                </div>
+                <button class="checkout-btn" id="checkoutBtn">Continuar con la Compra</button>
+            </div>
+
+            <!-- Formulario de checkout -->
+            <div class="checkout-form" id="checkoutForm">
+                <h3 class="form-title">Información del Pedido</h3>
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label class="form-label">Nombre y Apellido *</label>
+                        <input type="text" class="form-input" id="customerName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Teléfono *</label>
+                        <input type="tel" class="form-input" id="customerPhone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Correo Electrónico *</label>
+                        <input type="email" class="form-input" id="customerEmail" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Método de Entrega *</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="delivery" name="deliveryMethod" value="Envío a domicilio"
+                                    checked>
+                                <label for="delivery">Envío a domicilio</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="pickup" name="deliveryMethod" value="Retiro en tienda">
+                                <label for="pickup">Retiro en tienda</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Dirección (si aplica)</label>
+                        <input type="text" class="form-input" id="customerAddress" placeholder="Calle, número, ciudad">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Aclaraciones o Detalles del Pedido</label>
+                        <textarea class="form-input" id="orderNotes" rows="3"
+                            placeholder="Especificaciones especiales, medidas, etc."></textarea>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="button" class="back-btn" id="backToCartBtn">Volver al Carrito</button>
+                        <button type="button" class="continue-btn" id="continueToSummaryBtn">Ver Resumen</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Resumen del pedido -->
+            <div class="order-summary" id="orderSummary">
+                <h3 class="summary-title">Resumen de tu Pedido</h3>
+
+                <div class="summary-item">
+                    <div class="summary-label">Nombre:</div>
+                    <div class="summary-value" id="summaryName"></div>
+                </div>
+
+                <div class="summary-item">
+                    <div class="summary-label">Teléfono:</div>
+                    <div class="summary-value" id="summaryPhone"></div>
+                </div>
+
+                <div class="summary-item">
+                    <div class="summary-label">Correo:</div>
+                    <div class="summary-value" id="summaryEmail"></div>
+                </div>
+
+                <div class="summary-item">
+                    <div class="summary-label">Método de entrega:</div>
+                    <div class="summary-value" id="summaryDelivery"></div>
+                </div>
+
+                <div class="summary-item" id="summaryAddressContainer">
+                    <div class="summary-label">Dirección:</div>
+                    <div class="summary-value" id="summaryAddress"></div>
+                </div>
+
+                <div class="summary-item">
+                    <div class="summary-label">Aclaraciones:</div>
+                    <div class="summary-value" id="summaryNotes"></div>
+                </div>
+
+                <div class="summary-item">
+                    <div class="summary-label">Productos:</div>
+                    <div class="order-products" id="summaryProducts"></div>
+                </div>
+
+                <div class="cart-total">
+                    Total a pagar: <span id="summaryTotal"></span>
+                </div>
+
+                <button class="finalize-btn" id="finalizeOrderBtn">
+                    <i class="fab fa-whatsapp"></i> Finalizar Pedido por WhatsApp
+                </button>
+
+                <div class="form-buttons">
+                    <button type="button" class="back-btn" id="backToFormBtn">Volver al Formulario</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/3584829285?text=Hola,%20me%20interesan%20sus%20productos" class="whatsapp-btn"
+        target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <a href="#inicio" class="logo">
+                    <img src="/assets/img/logo_l&l.jpeg" alt="Vidrios y Espejos Logo" class="logo-img">
+                    <!-- Texto alternativo para accesibilidad -->
+                    <span class="sr-only">Vidrios y Espejos</span>
+                    <div class="logo">
+                        
+                        <h1 href="#inicio"><span> L & </span> <span>L</span></h1>
+                    </div>
+
+                </a>
+                <h3>Vidrios y Espejos</h3>
+                <p>Especialistas en espejos, mamparas y trabajos con vidrio. Calidad y servicio personalizado.</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Enlaces Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="#inicio"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="#nosotros"><i class="fas fa-info-circle"></i> Sobre Nosotros</a></li>
+                    <li><a href="#catalogo"><i class="fas fa-th-large"></i> Catálogo</a></li>
+                    <li><a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Contacto</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt"></i> Río Cuarto, cba</li>
+                    <li><i class="fas fa-phone"></i> +3584829285</li>
+                    <li><i class="fas fa-envelope"></i> Espejos_L&L@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p >  <h1 ><span> L & </span> <span>L</span></h1>Todos los derechos Reservados <span id="currentYear"></span> &copy;</p> <a href="https://AEM-websitecreator.netlify.app/" class="copyright">Creator
+                        BY AEM</a>
+        </div>
+    </footer>
+
+
+        <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/app.js"></script>
+
+
+</body>
+
+</html>

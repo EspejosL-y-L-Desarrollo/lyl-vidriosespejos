@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+    <!-- Header del Panel -->
+    <header class="admin-header">
+        <div class="header-container">
+            <div class="header-left">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a href="/admin-panel.html" class="logo">
+                    <img src="/assets/img/logo_l&l.jpeg" alt="L&L Logo" class="logo-img">
+                    <span>Panel de Administración</span>
+                </a>
+            </div>
+
+            <div class="header-right">
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span id="adminUsername">Administrador</span>
+                </div>
+                <button class="btn-logout" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <nav class="admin-sidebar" id="adminSidebar">
+        <ul class="sidebar-menu">
+            <li>
+                <a href="#dashboard" class="active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#products" data-section="products">
+                    <i class="fas fa-box"></i>
+                    <span>Gestión de Productos</span>
+                </a>
+            </li>
+            <li>
+                <a href="#price-adjust" data-section="price-adjust">
+                    <i class="fas fa-percentage"></i>
+                    <span>Ajuste de Precios</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <div class="system-status">
+                <div class="status-indicator active"></div>
+                <span>Sistema Conectado</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="admin-main" id="adminMain">
+        <!-- Sección Dashboard -->
+        <section id="dashboard" class="admin-section active">
+            <div class="section-header">
+                <h1><i class="fas fa-tachometer-alt"></i> Dashboard</h1>
+                <p>Bienvenido al panel de administración de Vidrios y Espejos L&L</p>
+            </div>
+
+            <!-- En la sección de stats-grid, mantén solo 3 tarjetas, no 4 -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon total-products">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalProducts">0</h3>
+                        <p>Total Productos</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon active-products">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="activeProducts">0</h3>
+                        <p>Productos Activos</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon offers">
+                        <i class="fas fa-tag"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="offerProducts">0</h3>
+                        <p>En Oferta</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de Productos Más Clickeados -->
+            <div class="most-clicked-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-chart-line"></i> Productos Más Clickeados</h3>
+                </div>
+                <div class="most-clicked-list" id="mostClickedList">
+                    <!-- Los productos más clickeados se cargarán aquí -->
+                    <div class="loading-spinner">
+                        <i class="fas fa-spinner fa-spin"></i> Cargando...
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Gestión de Productos -->
+        <section id="products" class="admin-section">
+            <div class="section-header">
+                <h1><i class="fas fa-box"></i> Gestión de Productos</h1>
+                <p>Administra los productos de tu catálogo</p>
+            </div>
+
+            <!-- Formulario para agregar/editar producto -->
+            <div class="product-form-container" id="productFormContainer">
+                <form id="productForm" class="product-form">
+                    <div class="form-header">
+                        <h3 id="formTitle">Agregar Nuevo Producto</h3>
+                        <button type="button" class="btn-close-form" id="closeForm">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-column">
+                            <div class="form-group">
+                                <label for="productTitle">
+                                    <i class="fas fa-heading"></i> Título del Producto *
+                                </label>
+                                <input type="text" id="productTitle" name="title" required
+                                    placeholder="Ej: Espejo de Pared Grande">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="productDescription">
+                                    <i class="fas fa-align-left"></i> Descripción
+                                </label>
+                                <textarea id="productDescription" name="description" rows="4"
+                                    placeholder="Descripción detallada del producto"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="productDetails">
+                                    <i class="fas fa-ruler-combined"></i> Detalles/Medidas *
+                                </label>
+                                <textarea id="productDetails" name="details" rows="3" required
+                                    placeholder="Ej: Medidas: 120x80 cm, Material: Vidrio templado"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-column">
+                            <div class="form-group">
+                                <label for="productPrice">
+                                    <i class="fas fa-dollar-sign"></i> Precio
+                                </label>
+                                <input type="number" id="productPrice" name="price" step="0.01" min="0"
+                                    placeholder="Ej: 125.99 (dejar vacío si no tiene precio)">
+                                <small>Dejar vacío para productos sin precio</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="productImages">
+                                    <i class="fas fa-images"></i> Imágenes del Producto
+                                </label>
+                                <div class="image-upload-area" id="imageUploadArea">
+                                    <div class="upload-instructions">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                        <p>Arrastra y suelta imágenes aquí o haz clic para seleccionar</p>
+                                        <small>Máximo 5 imágenes • Formatos: JPG, PNG, WebP</small>
+                                    </div>
+                                    <input type="file" id="productImages" name="images" multiple accept="image/*"
+                                        style="display: none;">
+                                </div>
+                                <div class="image-preview" id="imagePreview"></div>
+                            </div>
+
+                            <div class="form-group options-group">
+                                <label class="checkbox">
+                                    <input type="checkbox" id="isOffer" name="is_offer">
+                                    <span>Marcar como Oferta</span>
+                                </label>
+
+                                <label class="checkbox">
+                                    <input type="checkbox" id="isActive" name="is_active" checked>
+                                    <span>Producto Activo (visible en la tienda)</span>
+                                </label>
+
+                                <div class="offer-price-group" id="offerPriceGroup" style="display: none;">
+                                    <label for="offerPrice">
+                                        <i class="fas fa-tag"></i> Precio de Oferta
+                                    </label>
+                                    <input type="number" id="offerPrice" name="offer_price" step="0.01" min="0"
+                                        placeholder="Precio especial de oferta">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="productColors">
+                                    <i class="fas fa-palette"></i> Colores Disponibles
+                                </label>
+                                <div class="colors-container">
+                                    <div class="colors-input-group">
+                                        <input type="text" id="colorInput" placeholder="Ej: Blanco, Negro, Madera">
+                                        <button type="button" class="btn-small" id="addColorBtn">
+                                            <i class="fas fa-plus"></i> Agregar
+                                        </button>
+                                    </div>
+                                    <div class="selected-colors" id="selectedColors">
+                                        <!-- Los colores seleccionados aparecerán aquí -->
+                                    </div>
+                                    <small>Ingresa colores separados por coma o agrega uno por uno</small>
+                                    <input type="hidden" id="productColors" name="colors" value="[]">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="cancelForm">
+                            Cancelar
+                        </button>
+                        <button type="submit" class="btn-primary" id="submitProduct">
+                            <i class="fas fa-save"></i> Guardar Producto
+                        </button>
+                    </div>
+
+                    <input type="hidden" id="productId" name="id" value="">
+                </form>
+            </div>
+
+            <!-- Lista de productos -->
+            <div class="products-section">
+                <div class="section-toolbar">
+                    <button class="btn-add" id="showAddForm">
+                        <i class="fas fa-plus"></i> Agregar Producto
+                    </button>
+
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="productSearch" placeholder="Buscar productos...">
+                    </div>
+
+                    <div class="filters">
+                        <select id="statusFilter">
+                            <option value="all">Todos los estados</option>
+                            <option value="active">Solo activos</option>
+                            <option value="inactive">Solo inactivos</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="products-list" id="productsList">
+                    <!-- Los productos se cargarán aquí -->
+                </div>
+
+                <div class="pagination" id="pagination">
+                    <!-- Paginación se generará aquí -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Ajuste de Precios -->
+        <section id="price-adjust" class="admin-section">
+            <div class="section-header">
+                <h1><i class="fas fa-percentage"></i> Ajuste de Precios</h1>
+                <p>Ajusta los precios de todos los productos por porcentaje</p>
+            </div>
+
+            <div class="price-adjust-container">
+                <div class="adjust-card">
+                    <div class="adjust-header">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Ajuste Global de Precios</h3>
+                    </div>
+
+                    <div class="adjust-form">
+                        <div class="form-group">
+                            <label for="adjustType">Tipo de Ajuste</label>
+                            <select id="adjustType" class="form-select">
+                                <option value="increase">Aumentar Precios</option>
+                                <option value="decrease">Reducir Precios</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="adjustPercentage">Porcentaje (%)</label>
+                            <div class="percentage-input">
+                                <input type="number" id="adjustPercentage" min="1" max="100" value="10" step="0.1">
+                                <span>%</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="applyTo">Aplicar a:</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox">
+                                    <input type="checkbox" id="applyToAll" checked>
+                                    <span>Todos los productos con precio</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" id="applyToOffers" checked>
+                                    <span>Incluir precios de oferta</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="preview-box">
+                            <h4>Vista Previa del Cambio</h4>
+                            <div class="preview-example">
+                                <p>Producto de ejemplo: $100.00</p>
+                                <p class="preview-result">
+                                    Nuevo precio: <span id="previewPrice">$110.00</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="adjust-actions">
+                            <button class="btn-secondary" id="previewAdjust">
+                                <i class="fas fa-eye"></i> Vista Previa Completa
+                            </button>
+                            <button class="btn-primary" id="applyAdjust">
+                                <i class="fas fa-sync-alt"></i> Aplicar Ajuste
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="preview-table-container" id="previewTableContainer" style="display: none;">
+                    <h3>Vista Previa de Cambios</h3>
+                    <div class="table-responsive">
+                        <table class="preview-table">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Precio Actual</th>
+                                    <th>Precio Oferta Actual</th>
+                                    <th>Nuevo Precio</th>
+                                    <th>Nuevo Precio Oferta</th>
+                                    <th>Cambio</th>
+                                </tr>
+                            </thead>
+                            <tbody id="previewTableBody">
+                                <!-- Vista previa de cambios -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de confirmación -->
+    <div class="modal" id="confirmModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Confirmar Acción</h3>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="modalMessage">¿Estás seguro de realizar esta acción?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="modalCancel">Cancelar</button>
+                <button class="btn-primary" id="modalConfirm">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alertas flotantes -->
+    <div class="alert-container" id="alertContainer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/admin-panel.js"></script>
+</body>
+
+</html>

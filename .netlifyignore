@@ -1,0 +1,19 @@
+# Ignora TODO por defecto (incluye archivos ocultos como .env)
+/*
+
+# PERMITE explícitamente los archivos HTML en la raíz
+!/*.html
+
+# PERMITE las carpetas esenciales y TODO su contenido
+!/assets/
+!/CSS/
+!/JS/
+!/img/
+
+# PERMITE los archivos de configuración de Netlify en la raíz
+!/.netlifyignore
+!/netlify.toml
+!/_redirects
+
+# PERMITE el archivo .env.local (con precaución)
+!/.env.local
